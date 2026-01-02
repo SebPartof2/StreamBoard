@@ -20,5 +20,7 @@
   "WAT": { "name": "Walker Air Transport (Virtual)", "website": "https://walkerair.us" },
   "UAL": { "name": "United Airlines", "website": "https://united.com" },
   "RPA": { "name": "Republic Airways", "website": "https://rjet.com" },
-  "AFR": { "name": "Air France", "website": "https://airfrance.com" }
+  "AFR": { "name": "Air France", "website": "https://airfrance.com" },
+  "JBU": { "name": "JetBlue Airways", "website": "https://jetblue.com" },
+  "VJT": { "name": "VistaJet", "website": "https://www.vistajet.com/" }
 }
