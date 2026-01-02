@@ -198,6 +198,13 @@ function createFlightRow(flight) {
     let logoHtml;
     if (logoUrl) {
         logoHtml = `<img class="airline-logo" src="${escapeHtml(logoUrl)}" alt="${escapeHtml(airlineName)}" onerror="this.outerHTML='<div class=\\'airline-logo unknown\\'>?</div>'">`;
+    } else if (airlineName.startsWith('Private')) {
+        // GA tail icon for private aircraft
+        logoHtml = `<div class="airline-logo private-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+        </div>`;
     } else {
         logoHtml = `<div class="airline-logo unknown">?</div>`;
     }

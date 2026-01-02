@@ -31,6 +31,17 @@ export async function fetchAirlines() {
 }
 
 /**
+ * Check if callsign is an N-number (US aircraft registration)
+ * @param {string} callsign - Flight callsign
+ * @returns {boolean} True if callsign is an N-number
+ */
+export function isNNumber(callsign) {
+    if (!callsign) return false;
+    // N-numbers: N followed by 1-5 alphanumeric chars (digits, with up to 2 letters at end)
+    return /^N[0-9]{1,5}[A-Z]{0,2}$/.test(callsign.toUpperCase());
+}
+
+/**
  * Extract airline prefix from callsign (first 3 letters)
  * @param {string} callsign - Flight callsign
  * @returns {string|null} 3-letter prefix or null
@@ -55,6 +66,15 @@ export function extractAirlinePrefix(callsign) {
  * @returns {Object} Airline info with name and website
  */
 export function getAirlineInfo(callsign) {
+    // Check for N-numbers (US private aircraft)
+    if (isNNumber(callsign)) {
+        return {
+            prefix: callsign.toUpperCase(),
+            name: 'Private (United States)',
+            website: null
+        };
+    }
+
     const prefix = extractAirlinePrefix(callsign);
 
     if (!prefix || !airlinesCache) {
