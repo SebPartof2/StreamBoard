@@ -30,5 +30,6 @@
   "BAW": { "name": "British Airways", "website": "https://britishairways.com" },
   "ANA": { "name": "All Nippon Airways", "website": "https://ana.co.jp" },
   "UAE": { "name": "Emirates", "website": "https://emirates.com" },
-  "RCH": { "name": "Air Mobility Command", "website": "https://www.af.mil/" }
+  "RCH": { "name": "Air Mobility Command", "website": "https://www.af.mil/" },
+  "DLH": { "name": "Lufthansa", "website": "https://www.lufthansa.com" }
 }

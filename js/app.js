@@ -194,7 +194,8 @@ function createFlightRow(flight) {
     const airlineName = airlineInfo.name || 'Unknown Airline';
     const airlineIcao = airlineInfo.prefix || flight.callsign.substring(0, 3).toUpperCase();
     const flightNumber = airlineInfo.flightNumber;
-    const displayName = flightNumber ? `${airlineName} ${flightNumber}` : airlineName;
+    // Only show flight number if we have a known airline
+    const displayName = (airlineInfo.name && flightNumber) ? `${airlineName} ${flightNumber}` : airlineName;
     const logoUrl = getAirlineLogoUrl(airlineInfo.website);
 
     let logoHtml;
