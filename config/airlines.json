@@ -18,5 +18,7 @@
   "AAY": { "name": "Allegiant Air", "website": "https://allegiantair.com" },
   "SCX": { "name": "Sun Country Airlines", "website": "https://suncountry.com" },
   "WAT": { "name": "Walker Air Transport (Virtual)", "website": "https://walkerair.us" },
-  "UAL": { "name": "United Airlines", "website": "https://united.com" }
+  "UAL": { "name": "United Airlines", "website": "https://united.com" },
+  "RPA": { "name": "Republic Airways", "website": "https://rjet.com" },
+  "AFR": { "name": "Air France", "website": "https://airfrance.com" }
 }
