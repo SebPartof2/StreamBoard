@@ -32,5 +32,6 @@
   "UAE": { "name": "Emirates", "website": "https://emirates.com" },
   "RCH": { "name": "Air Mobility Command", "website": "https://www.af.mil/" },
   "DLH": { "name": "Lufthansa", "website": "https://www.lufthansa.com" },
-  "TRS": { "name": "AirTran Airways", "website": "http://www.airtran.com/" }
+  "TRS": { "name": "AirTran Airways", "website": "http://www.airtran.com/" },
+  "JUS": { "name": "USA Jet Airlines", "website": "https://usajet.aero/" }
 }
