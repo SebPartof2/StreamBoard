@@ -7,5 +7,8 @@
   "DAL": { "name": "Delta Air Lines", "website": "https://delta.com" },
   "UPS": { "name": "United Postal Service", "website": "https://ups.com" },
   "RED": { "name": "International Red Cross", "website": "https://icrc.org" },
-  "WJA": { "name": "WestJet", "website": "https://westjet.com" }
+  "WJA": { "name": "WestJet", "website": "https://westjet.com" },
+  "CSN": { "name": "China Southern Airlines", "website": "https://csair.com" },
+  "NKS": { "name": "Spirit Airlines", "website": "https://spirit.com" },
+  "WUP": { "name": "Wheels Up", "website": "https://wheelsup.com" }
 }
