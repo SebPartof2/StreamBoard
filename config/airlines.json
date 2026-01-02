@@ -5,5 +5,7 @@
   "DCM": { "name": "Dot Com", "website": "https://garmin.com" },
   "KLM": { "name": "KLM Royal Dutch Airlines", "website": "https://klm.com" },
   "DAL": { "name": "Delta Air Lines", "website": "https://delta.com" },
-  "UPS": { "name": "United Postal Service", "website": "https://ups.com" }
+  "UPS": { "name": "United Postal Service", "website": "https://ups.com" },
+  "RED": { "name": "International Red Cross", "website": "https://icrc.org" },
+  "WJA": { "name": "WestJet", "website": "https://westjet.com" }
 }
