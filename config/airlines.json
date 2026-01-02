@@ -2,5 +2,7 @@
   "AAL": { "name": "American Airlines", "website": "https://aa.com" },
   "SWA": { "name": "Southwest Airlines", "website": "https://southwest.com" },
   "FDX": { "name": "FedEx", "website": "https://fedex.com" },
-  "DCM": { "name": "Dot Com", "website": "https://garmin.com" }
+  "DCM": { "name": "Dot Com", "website": "https://garmin.com" },
+  "KLM": { "name": "KLM Royal Dutch Airlines", "website": "https://klm.com" },
+  "DAL": { "name": "Delta Air Lines", "website": "https://delta.com" }
 }
