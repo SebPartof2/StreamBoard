@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VATSIM Flight Board</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="airport-info">
+                <h1 class="airport-code" id="airportCode">----</h1>
+                <p class="airport-name" id="airportName">Loading...</p>
+            </div>
+            <div class="mode-tabs">
+                <a href="#" class="tab" data-mode="dep" id="tabDep">Departures</a>
+                <a href="#" class="tab" data-mode="arr" id="tabArr">Arrivals</a>
+                <a href="#" class="tab" data-mode="pre" id="tabPre">Auto</a>
+            </div>
+            <div class="status-info">
+                <span class="update-time" id="updateTime">--:--:--</span>
+                <span class="flight-count" id="flightCount">0 flights</span>
+            </div>
+        </header>
+
+        <main class="board">
+            <div class="board-header">
+                <div class="col col-airline">Airline</div>
+                <div class="col col-route" id="routeHeader">Destination</div>
+                <div class="col col-status">Status</div>
+                <div class="col col-aircraft">Aircraft</div>
+                <div class="col col-ete">ETE</div>
+            </div>
+            <div class="board-body" id="flightList">
+                <div class="loading-state" id="loadingState">
+                    <div class="spinner"></div>
+                    <p>Loading flight data...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Data from <a href="https://vatsim.net" target="_blank" rel="noopener">VATSIM</a> | Logos by <a href="https://logokit.com" target="_blank" rel="noopener">Logokit</a> | Updates every 30 seconds</p>
+        </footer>
+    </div>
+
+    <div class="landing-page" id="landingPage">
+        <div class="landing-content">
+            <h1>VATSIM Flight Board</h1>
+            <p>Enter an airport ICAO code to view departures and arrivals</p>
+            <form id="airportForm" class="airport-form">
+                <input type="text"
+                       id="airportInput"
+                       placeholder="KJFK"
+                       maxlength="4"
+                       pattern="[A-Za-z]{4}"
+                       autocomplete="off"
+                       spellcheck="false">
+                <div class="mode-select">
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="dep" checked>
+                        <span>Departures</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="arr">
+                        <span>Arrivals</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="pre">
+                        <span>Auto Cycle</span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">View Flights</button>
+            </form>
+            <div class="popular-airports">
+                <p>Popular airports:</p>
+                <div class="airport-links">
+                    <a href="/KJFK/dep">KJFK</a>
+                    <a href="/KLAX/dep">KLAX</a>
+                    <a href="/EGLL/dep">EGLL</a>
+                    <a href="/EDDF/dep">EDDF</a>
+                    <a href="/LFPG/dep">LFPG</a>
+                    <a href="/RJTT/dep">RJTT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>
