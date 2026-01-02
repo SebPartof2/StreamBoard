@@ -216,7 +216,7 @@ function createFlightRow(flight) {
             ${logoHtml}
             <div class="airline-info">
                 <span class="airline-name">${escapeHtml(displayName)}</span>
-                <span class="airline-icao">${escapeHtml(airlineIcao)}</span>
+                <span class="airline-icao">${escapeHtml(flight.callsign)}</span>
             </div>
         </div>
         <div class="route">

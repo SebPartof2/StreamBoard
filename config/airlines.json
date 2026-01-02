@@ -22,5 +22,9 @@
   "RPA": { "name": "Republic Airways", "website": "https://rjet.com" },
   "AFR": { "name": "Air France", "website": "https://airfrance.com" },
   "JBU": { "name": "JetBlue Airways", "website": "https://jetblue.com" },
-  "VJT": { "name": "VistaJet", "website": "https://www.vistajet.com/" }
+  "VJT": { "name": "VistaJet", "website": "https://www.vistajet.com/" },
+  "ANZ": { "name": "Air New Zealand", "website": "https://airnewzealand.com" },
+  "AAR": { "name": "Asiana Airlines", "website": "https://flyasiana.com" },
+  "SVA": { "name": "Saudi Arabian Airlines", "website": "https://saudia.com" },
+  "HAL": { "name": "Hawaiian Airlines (Historical)", "website": "https://hawaiianairlines.com" }
 }
