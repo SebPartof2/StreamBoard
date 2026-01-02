@@ -361,11 +361,14 @@ function updateDisplay() {
     // Update flight count
     elements.flightCount.textContent = `${state.flights.length} flight${state.flights.length !== 1 ? 's' : ''}`;
 
-    // Update time
+    // Update time (Zulu/UTC)
     if (state.vatsimData) {
         const updateTime = getUpdateTime(state.vatsimData);
         if (updateTime) {
-            elements.updateTime.textContent = updateTime.toLocaleTimeString();
+            const hours = updateTime.getUTCHours().toString().padStart(2, '0');
+            const minutes = updateTime.getUTCMinutes().toString().padStart(2, '0');
+            const seconds = updateTime.getUTCSeconds().toString().padStart(2, '0');
+            elements.updateTime.textContent = `${hours}:${minutes}:${seconds}Z`;
         }
     }
 

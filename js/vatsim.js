@@ -193,20 +193,8 @@ export function getFlightsForAirport(vatsimData, icao, mode, selectedAirport) {
         }
     }
 
-    // Sort by distance
-    if (mode === 'arr') {
-        // Arrivals: closest first
-        flights.sort((a, b) => a.distanceFromAirport - b.distanceFromAirport);
-    } else {
-        // Departures: on ground first, then by distance (furthest first)
-        flights.sort((a, b) => {
-            // Ground flights first
-            if (a.stage === 'ground' && b.stage !== 'ground') return -1;
-            if (b.stage === 'ground' && a.stage !== 'ground') return 1;
-            // Then by distance descending
-            return b.distanceFromAirport - a.distanceFromAirport;
-        });
-    }
+    // Sort flights alphabetically by route name (origin for arrivals, destination for departures)
+    flights.sort((a, b) => a.routeName.localeCompare(b.routeName));
 
     return flights;
 }
