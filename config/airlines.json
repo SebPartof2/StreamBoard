@@ -26,5 +26,9 @@
   "ANZ": { "name": "Air New Zealand", "website": "https://airnewzealand.com" },
   "AAR": { "name": "Asiana Airlines", "website": "https://flyasiana.com" },
   "SVA": { "name": "Saudi Arabian Airlines", "website": "https://saudia.com" },
-  "HAL": { "name": "Hawaiian Airlines (Historical)", "website": "https://hawaiianairlines.com" }
+  "HAL": { "name": "Hawaiian Airlines (Historical)", "website": "https://hawaiianairlines.com" },
+  "BAW": { "name": "British Airways", "website": "https://britishairways.com" },
+  "ANA": { "name": "All Nippon Airways", "website": "https://ana.co.jp" },
+  "UAE": { "name": "Emirates", "website": "https://emirates.com" },
+  "RCH": { "name": "Air Mobility Command", "website": "https://www.af.mil/" }
 }
