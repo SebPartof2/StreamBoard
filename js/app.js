@@ -193,6 +193,8 @@ function createFlightRow(flight) {
     const airlineInfo = getAirlineInfo(flight.callsign);
     const airlineName = airlineInfo.name || 'Unknown Airline';
     const airlineIcao = airlineInfo.prefix || flight.callsign.substring(0, 3).toUpperCase();
+    const flightNumber = airlineInfo.flightNumber;
+    const displayName = flightNumber ? `${airlineName} ${flightNumber}` : airlineName;
     const logoUrl = getAirlineLogoUrl(airlineInfo.website);
 
     let logoHtml;
@@ -210,10 +212,10 @@ function createFlightRow(flight) {
     }
 
     row.innerHTML = `
-        <div class="airline" title="${escapeHtml(airlineName)}">
+        <div class="airline" title="${escapeHtml(displayName)}">
             ${logoHtml}
             <div class="airline-info">
-                <span class="airline-name">${escapeHtml(airlineName)}</span>
+                <span class="airline-name">${escapeHtml(displayName)}</span>
                 <span class="airline-icao">${escapeHtml(airlineIcao)}</span>
             </div>
         </div>

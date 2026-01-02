@@ -61,9 +61,28 @@ export function extractAirlinePrefix(callsign) {
 }
 
 /**
+ * Extract flight number from callsign (everything after the 3-letter prefix)
+ * @param {string} callsign - Flight callsign
+ * @returns {string|null} Flight number or null
+ */
+export function extractFlightNumber(callsign) {
+    if (!callsign || callsign.length <= 3) {
+        return null;
+    }
+
+    const prefix = extractAirlinePrefix(callsign);
+    if (!prefix) {
+        return null;
+    }
+
+    const flightNumber = callsign.substring(3).toUpperCase();
+    return flightNumber || null;
+}
+
+/**
  * Get airline information from callsign
  * @param {string} callsign - Flight callsign
- * @returns {Object} Airline info with name and website
+ * @returns {Object} Airline info with name, website, and flight number
  */
 export function getAirlineInfo(callsign) {
     // Check for N-numbers (US private aircraft)
@@ -71,17 +90,20 @@ export function getAirlineInfo(callsign) {
         return {
             prefix: callsign.toUpperCase(),
             name: 'Private (United States)',
-            website: null
+            website: null,
+            flightNumber: null
         };
     }
 
     const prefix = extractAirlinePrefix(callsign);
+    const flightNumber = extractFlightNumber(callsign);
 
     if (!prefix || !airlinesCache) {
         return {
             prefix: prefix || callsign.substring(0, 3).toUpperCase(),
             name: null,
-            website: null
+            website: null,
+            flightNumber
         };
     }
 
@@ -91,14 +113,16 @@ export function getAirlineInfo(callsign) {
         return {
             prefix,
             name: airline.name,
-            website: airline.website
+            website: airline.website,
+            flightNumber
         };
     }
 
     return {
         prefix,
         name: null,
-        website: null
+        website: null,
+        flightNumber
     };
 }
 
