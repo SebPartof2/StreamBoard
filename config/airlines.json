@@ -10,5 +10,7 @@
   "WJA": { "name": "WestJet", "website": "https://westjet.com" },
   "CSN": { "name": "China Southern Airlines", "website": "https://csair.com" },
   "NKS": { "name": "Spirit Airlines", "website": "https://spirit.com" },
-  "WUP": { "name": "Wheels Up", "website": "https://wheelsup.com" }
+  "WUP": { "name": "Wheels Up", "website": "https://wheelsup.com" },
+  "PAC": { "name": "Polar Air Cargo", "website": "https://polaraircargo.com" },
+  "EDV": { "name": "Endeavor Air", "website": "https://www.endeavorair.com/" }
 }
