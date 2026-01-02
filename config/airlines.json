@@ -12,5 +12,7 @@
   "NKS": { "name": "Spirit Airlines", "website": "https://spirit.com" },
   "WUP": { "name": "Wheels Up", "website": "https://wheelsup.com" },
   "PAC": { "name": "Polar Air Cargo", "website": "https://polaraircargo.com" },
-  "EDV": { "name": "Endeavor Air", "website": "https://www.endeavorair.com/" }
+  "EDV": { "name": "Endeavor Air", "website": "https://www.endeavorair.com/" },
+  "ASA": { "name": "Alaska Airlines", "website": "https://alaskaair.com" },
+  "FFT": { "name": "Frontier Airlines", "website": "https://flyfrontier.com" }
 }
