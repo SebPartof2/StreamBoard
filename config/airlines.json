@@ -14,5 +14,7 @@
   "PAC": { "name": "Polar Air Cargo", "website": "https://polaraircargo.com" },
   "EDV": { "name": "Endeavor Air", "website": "https://www.endeavorair.com/" },
   "ASA": { "name": "Alaska Airlines", "website": "https://alaskaair.com" },
-  "FFT": { "name": "Frontier Airlines", "website": "https://flyfrontier.com" }
+  "FFT": { "name": "Frontier Airlines", "website": "https://flyfrontier.com" },
+  "AAY": { "name": "Allegiant Air", "website": "https://allegiantair.com" } ,
+  "SCX": { "name": "Sun Country Airlines", "website": "https://suncountry.com" }
 }
