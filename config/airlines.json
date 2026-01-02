@@ -1,3 +1,4 @@
 {
-  "AAL": { "name": "American Airlines", "website": "https://aa.com" }
+  "AAL": { "name": "American Airlines", "website": "https://aa.com" },
+  "SWA": { "name": "Southwest Airlines", "website": "https://southwest.com" }
 }
