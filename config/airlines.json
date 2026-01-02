@@ -1,4 +1,6 @@
 {
   "AAL": { "name": "American Airlines", "website": "https://aa.com" },
-  "SWA": { "name": "Southwest Airlines", "website": "https://southwest.com" }
+  "SWA": { "name": "Southwest Airlines", "website": "https://southwest.com" },
+  "FDX": { "name": "FedEx", "website": "https://fedex.com" },
+  "DCM": { "name": "Dot Com", "website": "https://garmin.com" }
 }
