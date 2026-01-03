@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VATSIM Flight Board</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,6 +22,7 @@
                 <a href="#" class="tab" data-mode="dep" id="tabDep">Departures</a>
                 <a href="#" class="tab" data-mode="arr" id="tabArr">Arrivals</a>
                 <a href="#" class="tab" data-mode="pre" id="tabPre">Auto</a>
+                <a href="#" class="tab" data-mode="map" id="tabMap">Map</a>
             </div>
             <div class="status-info">
                 <span class="update-time" id="updateTime">--:--:--</span>
@@ -27,7 +30,7 @@
             </div>
         </header>
 
-        <main class="board">
+        <main class="board" id="boardView">
             <div class="board-header">
                 <div class="col col-airline">Airline</div>
                 <div class="col col-route" id="routeHeader">Destination</div>
@@ -39,6 +42,24 @@
                 <div class="loading-state" id="loadingState">
                     <div class="spinner"></div>
                     <p>Loading flight data...</p>
+                </div>
+            </div>
+        </main>
+
+        <main class="map-container hidden" id="mapView">
+            <div id="flightMap"></div>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-dot departing"></span> Departing
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot arriving"></span> Arriving
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot cruising"></span> Cruising
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot ground"></span> On Ground
                 </div>
             </div>
         </main>
@@ -72,6 +93,10 @@
                     <label class="radio-label">
                         <input type="radio" name="mode" value="pre">
                         <span>Auto Cycle</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="map">
+                        <span>Map View</span>
                     </label>
                 </div>
                 <button type="submit" class="submit-btn">View Flights</button>

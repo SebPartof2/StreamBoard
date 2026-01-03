@@ -74,5 +74,9 @@
   "KAL": { "name": "Korean Air", "website": "https://koreanair.com" },
   "SKW": { "name": "SkyWest Airlines", "website": "https://skywest.com" },
   "EVA": { "name": "EVA Air", "website": "https://evaair.com" },
-  "GTI": { "name": "Atlas Air", "website": "https://atlasair.com" }
+  "GTI": { "name": "Atlas Air", "website": "https://atlasair.com" },
+  "SAA": { "name": "South African Airways", "website": "https://flysaa.com" },
+  "OCN": { "name": "Discover Airlines", "website": "https://discover-airlines.com" },
+  "CFG": { "name": "Condor", "website": "https://condor.com" },
+  "GEC": { "name": "Lufthansa Cargo", "website": "https://lufthansa-cargo.com" }
 }

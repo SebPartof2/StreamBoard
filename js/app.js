@@ -5,6 +5,7 @@
 import { fetchAirports, getAirport } from './airports.js';
 import { fetchAirlines, getAirlineInfo } from './airlines.js';
 import { fetchVatsimData, getFlightsForAirport, getUpdateTime } from './vatsim.js';
+import { initMap, updateFlights as updateMapFlights, destroyMap, invalidateSize } from './map.js';
 
 // Configuration
 const CONFIG = {
@@ -15,10 +16,11 @@ const CONFIG = {
 // Application state
 const state = {
     icao: null,
-    mode: 'dep',          // 'dep', 'arr', or 'pre'
-    displayMode: 'dep',   // Current display mode (for pre cycling)
+    mode: 'dep',          // 'dep', 'arr', 'pre', or 'map'
+    displayMode: 'dep',   // Current display mode (for pre cycling and map)
     airport: null,
     flights: [],
+    allFlights: [],       // Combined dep + arr flights for map mode
     vatsimData: null,
     isLoading: true,
     error: null,
@@ -44,6 +46,9 @@ const elements = {
     tabDep: null,
     tabArr: null,
     tabPre: null,
+    tabMap: null,
+    boardView: null,
+    mapView: null,
     airportForm: null,
     airportInput: null,
 };
@@ -62,7 +67,7 @@ function parseUrl() {
         if (parts.length >= 2) {
             const icao = parts[0].toUpperCase();
             const mode = parts[1].toLowerCase().split('?')[0].split('#')[0];
-            if (/^[A-Z]{4}$/.test(icao) && ['dep', 'arr', 'pre'].includes(mode)) {
+            if (/^[A-Z]{4}$/.test(icao) && ['dep', 'arr', 'pre', 'map'].includes(mode)) {
                 // Update URL to match
                 history.replaceState({ icao, mode }, '', `/${icao}/${mode}`);
                 return { icao, mode };
@@ -77,7 +82,7 @@ function parseUrl() {
         const icao = parts[0].toUpperCase();
         const mode = parts[1].toLowerCase();
 
-        if (/^[A-Z]{4}$/.test(icao) && ['dep', 'arr', 'pre'].includes(mode)) {
+        if (/^[A-Z]{4}$/.test(icao) && ['dep', 'arr', 'pre', 'map'].includes(mode)) {
             return { icao, mode };
         }
     }
@@ -110,6 +115,9 @@ function initElements() {
     elements.tabDep = document.getElementById('tabDep');
     elements.tabArr = document.getElementById('tabArr');
     elements.tabPre = document.getElementById('tabPre');
+    elements.tabMap = document.getElementById('tabMap');
+    elements.boardView = document.getElementById('boardView');
+    elements.mapView = document.getElementById('mapView');
     elements.airportForm = document.getElementById('airportForm');
     elements.airportInput = document.getElementById('airportInput');
 }
@@ -137,9 +145,19 @@ function updateTabs() {
     elements.tabDep.classList.toggle('active', state.mode === 'dep' || (state.mode === 'pre' && state.displayMode === 'dep'));
     elements.tabArr.classList.toggle('active', state.mode === 'arr' || (state.mode === 'pre' && state.displayMode === 'arr'));
     elements.tabPre.classList.toggle('active', state.mode === 'pre');
+    elements.tabMap.classList.toggle('active', state.mode === 'map');
 
     // Update route header
     elements.routeHeader.textContent = state.displayMode === 'dep' ? 'Destination' : 'Origin';
+
+    // Toggle board/map views
+    if (state.mode === 'map') {
+        elements.boardView.classList.add('hidden');
+        elements.mapView.classList.remove('hidden');
+    } else {
+        elements.boardView.classList.remove('hidden');
+        elements.mapView.classList.add('hidden');
+    }
 }
 
 /**
@@ -410,12 +428,31 @@ async function refreshData() {
 
     try {
         state.vatsimData = await fetchVatsimData();
-        state.flights = getFlightsForAirport(
-            state.vatsimData,
-            state.icao,
-            state.displayMode,
-            state.airport
-        );
+
+        if (state.mode === 'map') {
+            // For map mode, get both departures and arrivals
+            const departures = getFlightsForAirport(
+                state.vatsimData,
+                state.icao,
+                'dep',
+                state.airport
+            );
+            const arrivals = getFlightsForAirport(
+                state.vatsimData,
+                state.icao,
+                'arr',
+                state.airport
+            );
+            state.allFlights = [...departures, ...arrivals];
+            state.flights = state.allFlights;
+        } else {
+            state.flights = getFlightsForAirport(
+                state.vatsimData,
+                state.icao,
+                state.displayMode,
+                state.airport
+            );
+        }
         state.error = null;
     } catch (error) {
         console.error('Error refreshing data:', error);
@@ -424,6 +461,11 @@ async function refreshData() {
 
     state.isLoading = false;
     updateDisplay();
+
+    // Update map if in map mode
+    if (state.mode === 'map' && state.airport) {
+        updateMapFlights(state.allFlights, state.airport, 'both');
+    }
 }
 
 /**
@@ -556,12 +598,18 @@ async function navigateTo(icao, mode) {
         clearInterval(state.refreshTimer);
     }
 
+    // Destroy map if leaving map mode
+    if (state.mode === 'map' && mode !== 'map') {
+        destroyMap();
+    }
+
     // Update state
     state.icao = icao.toUpperCase();
     state.mode = mode;
-    state.displayMode = mode === 'pre' ? 'dep' : mode;
+    state.displayMode = (mode === 'pre' || mode === 'map') ? 'dep' : mode;
     state.isLoading = true;
     state.flights = [];
+    state.allFlights = [];
     state.error = null;
     state.currentPage = 0;
     state.totalPages = 1;
@@ -575,6 +623,12 @@ async function navigateTo(icao, mode) {
     // Show board
     showBoard();
     updateDisplay();
+
+    // Initialize map if entering map mode
+    if (mode === 'map' && state.airport) {
+        initMap(state.airport);
+        invalidateSize();
+    }
 
     // Start data fetching
     await refreshData();
@@ -646,6 +700,7 @@ async function init() {
     elements.tabDep.addEventListener('click', handleTabClick);
     elements.tabArr.addEventListener('click', handleTabClick);
     elements.tabPre.addEventListener('click', handleTabClick);
+    elements.tabMap.addEventListener('click', handleTabClick);
     elements.airportForm.addEventListener('submit', handleFormSubmit);
     window.addEventListener('popstate', handlePopState);
 

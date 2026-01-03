@@ -654,3 +654,164 @@ body {
     background: var(--accent-blue);
     box-shadow: 0 0 8px var(--accent-blue);
 }
+
+/* Map View */
+.map-container {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.map-container.hidden {
+    display: none;
+}
+
+#flightMap {
+    flex: 1;
+    min-height: 400px;
+    background: var(--bg-primary);
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.legend-dot.departing {
+    background: var(--accent-yellow);
+    box-shadow: 0 0 6px var(--accent-yellow);
+}
+
+.legend-dot.arriving {
+    background: var(--accent-green);
+    box-shadow: 0 0 6px var(--accent-green);
+}
+
+.legend-dot.cruising {
+    background: var(--accent-blue);
+    box-shadow: 0 0 6px var(--accent-blue);
+}
+
+.legend-dot.ground {
+    background: var(--text-muted);
+}
+
+/* Leaflet overrides for dark theme */
+.leaflet-container {
+    background: var(--bg-primary);
+    font-family: var(--font-sans);
+}
+
+.leaflet-popup-content-wrapper {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-popup-content {
+    margin: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.leaflet-popup-tip {
+    background: var(--bg-secondary);
+}
+
+.leaflet-popup-close-button {
+    color: var(--text-secondary) !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: var(--text-primary) !important;
+}
+
+.flight-popup {
+    min-width: 150px;
+}
+
+.flight-popup strong {
+    font-family: var(--font-mono);
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+.flight-popup .popup-detail {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+.aircraft-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.airport-icon {
+    filter: drop-shadow(0 2px 6px rgba(59, 130, 246, 0.5));
+}
+
+.airport-marker {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Leaflet control overrides */
+.leaflet-control-zoom a {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: var(--bg-hover) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(10, 10, 15, 0.8) !important;
+    color: var(--text-muted) !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--accent-blue) !important;
+}
+
+/* Hidden utility class */
+.hidden,
+.board.hidden {
+    display: none !important;
+}
+
+/* Map responsive */
+@media (max-width: 640px) {
+    .map-legend {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}
