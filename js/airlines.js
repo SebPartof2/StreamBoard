@@ -42,6 +42,16 @@ export function isNNumber(callsign) {
 }
 
 /**
+ * Check if callsign is a Concorde flight
+ * @param {string} callsign - Flight callsign
+ * @returns {boolean} True if callsign starts with CONC
+ */
+export function isConcorde(callsign) {
+    if (!callsign) return false;
+    return callsign.toUpperCase().startsWith('CONC');
+}
+
+/**
  * Extract airline prefix from callsign (first 3 letters)
  * @param {string} callsign - Flight callsign
  * @returns {string|null} 3-letter prefix or null
@@ -92,6 +102,16 @@ export function getAirlineInfo(callsign) {
             name: 'Private (United States)',
             website: null,
             flightNumber: null
+        };
+    }
+
+    // Check for Concorde flights
+    if (isConcorde(callsign)) {
+        return {
+            prefix: 'CONC',
+            name: 'Concorde',
+            website: null,
+            flightNumber: callsign.substring(4).toUpperCase() || null
         };
     }
 

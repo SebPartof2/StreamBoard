@@ -43,5 +43,10 @@
   "ACA": { "name": "Air Canada", "website": "https://aircanada.com" },
   "JAL": { "name": "Japan Airlines", "website": "https://jal.co.jp" },
   "MZN": { "name": "Prime Air", "website": "https://amazon.com/" },
-  "ETD": { "name": "Etihad Airways", "website": "https://etihad.com" }
+  "ETD": { "name": "Etihad Airways", "website": "https://etihad.com" },
+  "TAM": { "name": "LATAM Airlines", "website": "https://latamairlines.com" },
+  "XNO": { "name": "Air Nott (Virtual)", "website": "https://airnott.co.uk" },
+  "SWR": { "name": "Swiss International Air Lines", "website": "https://swiss.com" },
+  "QTR": { "name": "Qatar Airways", "website": "https://qatarairways.com" },
+  "SIA": { "name": "Singapore Airlines", "website": "https://singaporeair.com" }
 }

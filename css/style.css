@@ -204,6 +204,15 @@ body {
     border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
+.airline-logo.concorde-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-orange);
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
 .airline-info {
     display: flex;
     flex-direction: column;
