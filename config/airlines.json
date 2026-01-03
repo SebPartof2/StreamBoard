@@ -65,5 +65,14 @@
   "EKF": { "name": "QVirtual (Virtual)", "website": "https://qvirtual.aero" },
   "DLR": { "name": "Dala Air Services", "website": "https://dalaair.kz"},
   "HVN": { "name": "Vietnam Airlines", "website": "https://vietnamairlines.com"},
-  "CXA": { "name": "Xiamen Air", "website": "https://www.xiamenair.com"}
+  "CXA": { "name": "Xiamen Air", "website": "https://www.xiamenair.com"},
+  "FIN": { "name": "Finnair", "website": "https://finnair.com"},
+  "VIV": { "name": "Viva Air", "website": "https://vivaaerobus.com" },
+  "AAA": { "name": "Ansett Australia (Historical)", "website": "https://annset.com" },
+  "CMB": { "name": "US Transportation Command", "website": "https://www.ustranscom.mil" },
+  "OMD": { "name": "Nomadic Aviation Group", "website": "https://nomadic.aero" },
+  "KAL": { "name": "Korean Air", "website": "https://koreanair.com" },
+  "SKW": { "name": "SkyWest Airlines", "website": "https://skywest.com" },
+  "EVA": { "name": "EVA Air", "website": "https://evaair.com" },
+  "GTI": { "name": "Atlas Air", "website": "https://atlasair.com" }
 }
