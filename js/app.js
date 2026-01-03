@@ -215,6 +215,13 @@ function createFlightRow(flight) {
                 <path d="M3 12L21 4v2l-9 6 9 6v2L3 12zm0 0l4 0"/>
             </svg>
         </div>`;
+    } else if (airlineName === 'Unknown Airline (IATA Code)') {
+        // Error icon for IATA codes
+        logoHtml = `<div class="airline-logo iata-error-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+        </div>`;
     } else {
         logoHtml = `<div class="airline-logo unknown">?</div>`;
     }

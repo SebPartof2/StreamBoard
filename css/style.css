@@ -213,6 +213,15 @@ body {
     border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
+.airline-logo.iata-error-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-red);
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 .airline-info {
     display: flex;
     flex-direction: column;

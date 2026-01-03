@@ -52,6 +52,17 @@ export function isConcorde(callsign) {
 }
 
 /**
+ * Check if callsign uses IATA code (2 letters followed by numbers)
+ * @param {string} callsign - Flight callsign
+ * @returns {boolean} True if callsign uses IATA format
+ */
+export function isIataCode(callsign) {
+    if (!callsign || callsign.length < 3) return false;
+    // 2 letters followed by at least one digit
+    return /^[A-Z]{2}[0-9]/.test(callsign.toUpperCase());
+}
+
+/**
  * Extract airline prefix from callsign (first 3 letters)
  * @param {string} callsign - Flight callsign
  * @returns {string|null} 3-letter prefix or null
@@ -112,6 +123,16 @@ export function getAirlineInfo(callsign) {
             name: 'Concorde',
             website: null,
             flightNumber: callsign.substring(4).toUpperCase() || null
+        };
+    }
+
+    // Check for IATA codes (2 letters + numbers) - these are invalid on VATSIM
+    if (isIataCode(callsign)) {
+        return {
+            prefix: callsign.substring(0, 2).toUpperCase(),
+            name: 'Unknown Airline (IATA Code)',
+            website: null,
+            flightNumber: null
         };
     }
 

@@ -48,5 +48,13 @@
   "XNO": { "name": "Air Nott (Virtual)", "website": "https://airnott.co.uk" },
   "SWR": { "name": "Swiss International Air Lines", "website": "https://swiss.com" },
   "QTR": { "name": "Qatar Airways", "website": "https://qatarairways.com" },
-  "SIA": { "name": "Singapore Airlines", "website": "https://singaporeair.com" }
+  "SIA": { "name": "Singapore Airlines", "website": "https://singaporeair.com" },
+  "THY": { "name": "Turkish Airlines", "website": "https://turkishairlines.com" },
+  "QFA": { "name": "Qantas Airways", "website": "https://qantas.com" },
+  "AFL": { "name": "Aeroflot", "website": "https://aeroflot.ru" },
+  "JST": { "name": "Jetstar Airways", "website": "https://jetstar.com" },
+  "AIC": { "name": "Air India", "website": "https://airindia.in" },
+  "QLK": { "name": "QantasLink", "website": "https://qantas.com" },
+  "CAL": { "name": "China Airlines", "website": "https://china-airlines.com" },
+  "EZY": { "name": "easyJet", "website": "https://easyjet.com" }
 }
