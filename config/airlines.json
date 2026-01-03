@@ -56,5 +56,9 @@
   "AIC": { "name": "Air India", "website": "https://airindia.in" },
   "QLK": { "name": "QantasLink", "website": "https://qantas.com" },
   "CAL": { "name": "China Airlines", "website": "https://china-airlines.com" },
-  "EZY": { "name": "easyJet", "website": "https://easyjet.com" }
+  "EZY": { "name": "easyJet", "website": "https://easyjet.com" },
+  "ELY": { "name": "El Al", "website": "https://elal.com" },
+  "VOZ": { "name": "Virgin Australia", "website": "https://virginaustralia.com" },
+  "JZA": { "name": "Jazz Aviation", "website": "https://flyjazz.ca" },
+  "AKU": { "name": "Alkebulan Airlines", "website": "https://alkebulanairlines.com" }
 }
