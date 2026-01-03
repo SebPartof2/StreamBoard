@@ -60,5 +60,10 @@
   "ELY": { "name": "El Al", "website": "https://elal.com" },
   "VOZ": { "name": "Virgin Australia", "website": "https://virginaustralia.com" },
   "JZA": { "name": "Jazz Aviation", "website": "https://flyjazz.ca" },
-  "AKU": { "name": "Alkebulan Airlines", "website": "https://alkebulanairlines.com" }
+  "AKU": { "name": "Alkebulan Airlines", "website": "https://alkebulanairlines.com" },
+  "AWE": { "name": "US Airways (Historical)", "website": "https://usairways.com" },
+  "EKF": { "name": "QVirtual (Virtual)", "website": "https://qvirtual.aero" },
+  "DLR": { "name": "Dala Air Services", "website": "https://dalaair.kz"},
+  "HVN": { "name": "Vietnam Airlines", "website": "https://vietnamairlines.com"},
+  "CXA": { "name": "Xiamen Air", "website": "https://www.xiamenair.com"}
 }
